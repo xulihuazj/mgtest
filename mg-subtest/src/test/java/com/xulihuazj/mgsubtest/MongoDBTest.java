@@ -1,7 +1,7 @@
 package com.xulihuazj.mgsubtest;
 
 import com.xulihuazj.mgsubtest.data.User;
-import com.xulihuazj.mgsubtest.repository.UserRepository;
+import com.xulihuazj.mgsubtest.repository.user.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

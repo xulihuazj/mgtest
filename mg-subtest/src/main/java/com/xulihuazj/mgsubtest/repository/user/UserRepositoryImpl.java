@@ -1,16 +1,19 @@
-package com.xulihuazj.mgsubtest.repository;
+package com.xulihuazj.mgsubtest.repository.user;
 
 import com.mongodb.WriteResult;
-import com.xulihuazj.mgsubtest.data.User;
+import com.xulihuazj.mgsubtest.repository.BaseRepositoryImpl;
+import com.xulihuazj.mgsubtest.repository.room.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
+import com.xulihuazj.mgsubtest.data.User;
+
 
 @Repository
-public class UserRepositoryImpl implements UserRepository {
+public class UserRepositoryImpl<T> extends BaseRepositoryImpl<T> implements UserRepository {
 
     @Autowired
     private MongoTemplate mongoTemplate;
