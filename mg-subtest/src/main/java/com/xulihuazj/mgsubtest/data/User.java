@@ -12,6 +12,7 @@ import java.io.Serializable;
  * 用户实体类
  * <p>ClassName：User</>
  * <p>Description：用户实体类</p>
+ *
  * @author xulihua
  */
 @Document(collection = "user_info")
@@ -20,11 +21,16 @@ public class User implements Serializable {
     private static final long serialVersionUID = 3503790361839243561L;
 
     @Id
+    private String id;
+
+    @Field
+//    @Indexed(direction = IndexDirection.ASCENDING,unique = true)
+    @Indexed(direction = IndexDirection.ASCENDING)
     private Long userId;
 
     @Field
     // 指定索引
-    @Indexed(name = "username",direction = IndexDirection.ASCENDING)
+    @Indexed(name = "username", direction = IndexDirection.ASCENDING)
     private String userName;
 
     @Field("userSex")
@@ -44,6 +50,14 @@ public class User implements Serializable {
 
     @Field
     private String userType;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Long getUserId() {
         return userId;

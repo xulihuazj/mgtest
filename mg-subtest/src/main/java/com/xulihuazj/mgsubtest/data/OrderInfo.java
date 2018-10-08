@@ -13,7 +13,7 @@ import java.io.Serializable;
  *
  */
 @Document(collection = "order_info")
-public class Order implements Serializable {
+public class OrderInfo implements Serializable {
 
     private static final long serialVersionUID = -2305049382769475376L;
 

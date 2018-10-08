@@ -18,20 +18,20 @@ public class MongoDBTest {
     @Test
     public void testSave() {
         User user = new User();
-        user.setUserId(3L);
-        user.setUserName("成秀秀");
+        user.setUserId(2L);
+        user.setUserName("成秀秀2");
         user.setUserPhone("18456463651");
         user.setNickName("秀秀");
         user.setEmail("chenxiuxiu@52mamahome.com");
         user.setUserSex("FALE");
         user.setUserStatus("EFFECTIVE");
         user.setUserType("PROD");
-        userRepository.saveUser(user);
+        userRepository.save(user);
     }
 
     @Test
     public void testFindUserByUserName() {
-        User user = userRepository.findUserByUserName("周家豪");
+        User user = userRepository.findUserByUserName("成秀秀2");
         System.out.println(user.toString());
     }
 

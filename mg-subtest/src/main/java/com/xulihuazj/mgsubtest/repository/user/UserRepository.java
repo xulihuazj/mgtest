@@ -1,15 +1,16 @@
 package com.xulihuazj.mgsubtest.repository.user;
 
 import com.xulihuazj.mgsubtest.data.User;
+import com.xulihuazj.mgsubtest.repository.BaseRepository;
 
-public interface UserRepository {
+public interface UserRepository extends BaseRepository<User> {
 
     /**
      * 创建对象
      *
      * @param user
      */
-    void saveUser(User user);
+//    void saveUser(User user);
 
     /**
      * 查找对象

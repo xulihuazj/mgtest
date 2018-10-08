@@ -13,15 +13,18 @@ import com.xulihuazj.mgsubtest.data.User;
 
 
 @Repository
-public class UserRepositoryImpl<T> extends BaseRepositoryImpl<T> implements UserRepository {
-
-    @Autowired
-    private MongoTemplate mongoTemplate;
+public class UserRepositoryImpl extends BaseRepositoryImpl<User> implements UserRepository {
 
     @Override
-    public void saveUser(User user) {
-        mongoTemplate.save(user);
+    protected Class<User> getEntityClass() {
+        return User.class;
     }
+
+
+//    @Override
+//    public void saveUser(User user) {
+//        mongoTemplate.save(user);
+//    }
 
     @Override
     public User findUserByUserName(String userName) {
@@ -46,4 +49,5 @@ public class UserRepositoryImpl<T> extends BaseRepositoryImpl<T> implements User
         Query query = new Query(Criteria.where("id").is(id));
         mongoTemplate.remove(query, User.class);
     }
+
 }

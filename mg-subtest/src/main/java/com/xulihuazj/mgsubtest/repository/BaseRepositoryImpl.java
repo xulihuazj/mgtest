@@ -32,7 +32,7 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
     protected abstract Class<T> getEntityClass();
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    protected MongoTemplate mongoTemplate;
 
     @Override
     public void save(T entity) {
