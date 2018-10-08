@@ -44,12 +44,13 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
         String jsonStr = JSON.toJSONString(entity);
         Map<String, Object> map = JSON.parseObject(jsonStr, Map.class);
         String idName = null;
-        String idValue = null;
+        Object idValue = null;
         Update update = new Update();
         for (Map.Entry mapInter : map.entrySet()) {
             String key = (String) mapInter.getKey();
             if (key.indexOf("{") != -1) {
-
+                idName = key.substring(key.indexOf("{") + 1, key.indexOf("}"));
+                idValue = mapInter.getValue();
             } else {
                 update.set(key, mapInter.getValue());
             }

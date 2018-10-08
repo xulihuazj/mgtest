@@ -18,8 +18,8 @@ public class MongoDBTest {
     @Test
     public void testSave() {
         User user = new User();
-        user.setUserId(2L);
-        user.setUserName("成秀秀2");
+        user.setUserId(4L);
+        user.setUserName("成秀秀4");
         user.setUserPhone("18456463651");
         user.setNickName("秀秀");
         user.setEmail("chenxiuxiu@52mamahome.com");
@@ -31,7 +31,7 @@ public class MongoDBTest {
 
     @Test
     public void testFindUserByUserName() {
-        User user = userRepository.findUserByUserName("成秀秀2");
+        User user = userRepository.findUserByUserName("周家壕");
         System.out.println(user.toString());
     }
 
@@ -39,9 +39,10 @@ public class MongoDBTest {
     public void testUpdateUser() {
         User user = new User();
         user.setUserId(3L);
-        user.setUserName("周家豪");
+        user.setUserName("周家壕");
         user.setUserPhone("13111112222");
-        userRepository.updateUser(user);
+//        userRepository.updateUser(user);
+        userRepository.update(user);
     }
 
     @Test
