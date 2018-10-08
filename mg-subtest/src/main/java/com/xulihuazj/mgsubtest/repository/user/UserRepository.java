@@ -1,4 +1,4 @@
-package com.xulihuazj.mgsubtest.repository;
+package com.xulihuazj.mgsubtest.repository.user;
 
 import com.xulihuazj.mgsubtest.data.User;
 
