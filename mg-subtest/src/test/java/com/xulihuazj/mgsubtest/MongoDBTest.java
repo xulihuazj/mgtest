@@ -18,8 +18,8 @@ public class MongoDBTest {
     @Test
     public void testSave() {
         User user = new User();
-        user.setUserId(4L);
-        user.setUserName("成秀秀4");
+        user.setUserId(6L);
+        user.setUserName("成秀秀6");
         user.setUserPhone("18456463651");
         user.setNickName("秀秀");
         user.setEmail("chenxiuxiu@52mamahome.com");
