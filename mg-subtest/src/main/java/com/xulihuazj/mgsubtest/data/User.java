@@ -12,9 +12,12 @@ import java.io.Serializable;
  * 用户实体类
  * <p>ClassName：User</>
  * <p>Description：用户实体类</p>
+ * @author xulihua
  */
 @Document(collection = "user_info")
 public class User implements Serializable {
+
+    private static final long serialVersionUID = 3503790361839243561L;
 
     @Id
     private Long userId;
