@@ -1,21 +1,45 @@
 package com.xulihuazj.mgsubtest.data;
 
-public class User {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.io.Serializable;
+
+/**
+ * 用户实体类
+ * <p>ClassName：User</>
+ * <p>Description：用户实体类</p>
+ */
+@Document(collection = "user_info")
+public class User implements Serializable {
+
+    @Id
     private Long userId;
 
+    @Field
+    // 指定索引
+    @Indexed(name = "username",direction = IndexDirection.ASCENDING)
     private String userName;
 
+    @Field("userSex")
     private String userSex;
 
+    @Field
     private String nickName;
 
+    @Field
     private String userPhone;
 
+    @Field
     private String email;
 
+    @Field
     private String userStatus;
 
+    @Field
     private String userType;
 
     public Long getUserId() {
