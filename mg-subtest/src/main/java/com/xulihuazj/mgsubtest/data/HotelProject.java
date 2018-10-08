@@ -1,6 +1,8 @@
 package com.xulihuazj.mgsubtest.data;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
@@ -19,6 +21,7 @@ public class HotelProject implements Serializable {
 
     // 社区ID
     @Id
+    @Indexed(direction = IndexDirection.ASCENDING)
     private Long projectId;
 
     // 社区类型
@@ -27,6 +30,7 @@ public class HotelProject implements Serializable {
 
     // 社区名称
     @Field
+    @Indexed(direction = IndexDirection.ASCENDING)
     private String projectName;
 
     // 社区地址

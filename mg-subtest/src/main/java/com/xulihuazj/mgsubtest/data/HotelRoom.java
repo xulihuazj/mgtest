@@ -1,6 +1,8 @@
 package com.xulihuazj.mgsubtest.data;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -33,10 +35,12 @@ public class HotelRoom implements Serializable {
 
     // 房间名称
     @Field
+    @Indexed(direction = IndexDirection.ASCENDING)
     private String roomName;
 
     // 房间号
     @Field
+    @Indexed(direction = IndexDirection.ASCENDING)
     private String roomNum;
 
     // 厅数

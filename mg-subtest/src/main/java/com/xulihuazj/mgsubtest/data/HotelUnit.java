@@ -1,5 +1,7 @@
 package com.xulihuazj.mgsubtest.data;
 
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
@@ -24,6 +26,7 @@ public class HotelUnit implements Serializable {
 
     // 单元名称
     @Field
+    @Indexed(direction = IndexDirection.ASCENDING)
     private String unitName;
 
     // 总楼层
