@@ -1,14 +1,18 @@
 package com.xulihuazj.mgsubtest.repository;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xulihuazj.mgsubtest.util.OrderSortParse;
 import com.xulihuazj.mgsubtest.util.PageModel;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -37,9 +41,21 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T> {
 
     @Override
     public void update(T entity) {
-        /**
-         * TODO
-         */
+        String jsonStr = JSON.toJSONString(entity);
+        Map<String, Object> map = JSON.parseObject(jsonStr, Map.class);
+        String idName = null;
+        String idValue = null;
+        Update update = new Update();
+        for (Map.Entry mapInter : map.entrySet()) {
+            String key = (String) mapInter.getKey();
+            if (key.indexOf("{") != -1) {
+
+            } else {
+                update.set(key, mapInter.getValue());
+            }
+        }
+        Query query = new Query().addCriteria(where(idName).is(idValue));
+        this.mongoTemplate.updateFirst(query, update, this.getEntityClass());
     }
 
     @Override
