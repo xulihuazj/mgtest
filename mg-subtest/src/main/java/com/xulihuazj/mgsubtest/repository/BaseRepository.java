@@ -92,7 +92,7 @@ public interface BaseRepository<T> {
      *                 为空则不排序，不指定排序方式则默认升序排序
      * @return 结果集合 或 null
      */
-    List<T> findByProps(Map<String, Object> propMaps, List<SortEnum> sort);
+    List<T> findByPropsWithSort(Map<String, Object> propMaps, List<SortEnum> sort);
 
     /**
      * 根据单一参数查询唯一结果<br>
@@ -144,7 +144,7 @@ public interface BaseRepository<T> {
      * @param propMap  参数key-value
      * @return 分页模型对象（不会为null）
      */
-    PageModel<T> pageByProp(int pageNo, int pageSize, Map<String, Object> propMap);
+    PageModel<T> pageByProp(int pageNo, int pageSize, String propName,Object propValue);
 
     /**
      * 根据参数分页查询结果集合并排序<br>
@@ -157,7 +157,7 @@ public interface BaseRepository<T> {
      *                 为空则不排序，不指定排序方式则默认升序排序
      * @return 分页模型对象（不会为null）
      */
-    PageModel<T> pageByPropWithSort(int pageNo, int pageSize, Map<String, Object> propMap, List<SortEnum> sort);
+    PageModel<T> pageByPropWithSort(int pageNo, int pageSize, String propName, Object propValue, List<SortEnum> sort);
 
     /**
      * 根据参数分页查询结果集合<br>
@@ -181,7 +181,7 @@ public interface BaseRepository<T> {
      *                 为空则不排序，不指定排序方式则默认升序排序
      * @return 分页模型对象（不会为null）
      */
-    PageModel<T> pageByProps(int pageNo, int pageSize, Map<String, Object> propMaps, List<SortEnum> sort);
+    PageModel<T> pageByPropsWithSort(int pageNo, int pageSize, Map<String, Object> propMaps, List<SortEnum> sort);
 
     /**
      * 根据条件查询总记录数
